@@ -9,4 +9,4 @@ RUN curl -o actions-runner-linux-x64-2.336.0.tar.gz -L https://github.com/action
 RUN tar xzf ./actions-runner-linux-x64-2.336.0.tar.gz
 USER runner
 RUN 
-CMD ["bash", "-c", "./config.sh --url https://github.com/naresh-gantala-roboshop-project/roboshop-cart --token ${RUNNER_TOKEN} --unattended --replace && ./run.sh"]
+CMD ["bash", "-c", "./config.sh --url https://github.com/naresh-gantala-roboshop-project/roboshop-cart --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --unattended --replace && ./run.sh"]

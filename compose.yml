@@ -1,0 +1,8 @@
+services:
+  github-runners:
+    build: .
+    environment:
+      - RUNNER_NAME=["runner-1", "runner-2", "runner-3"]
+      - RUNNER_TOKEN=${RUNNER_TOKEN}
+      - RUNNER_URL=${RUNNER_URL}
+
