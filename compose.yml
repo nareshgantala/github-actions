@@ -1,8 +1,21 @@
 services:
-  github-runners:
+  runner-1:
     build: .
     environment:
-      - RUNNER_NAME=["runner-1", "runner-2", "runner-3"]
-      - RUNNER_TOKEN=${RUNNER_TOKEN}
+      - RUNNER_NAME=runner-1
+      - RUNNER_TOKEN=${RUNNER_TOKEN_1}
       - RUNNER_URL=${RUNNER_URL}
 
+  runner-2:
+    build: .
+    environment:
+      - RUNNER_NAME=runner-2
+      - RUNNER_TOKEN=${RUNNER_TOKEN_2}
+      - RUNNER_URL=${RUNNER_URL}
+
+  runner-3:
+    build: .
+    environment:
+      - RUNNER_NAME=runner-3
+      - RUNNER_TOKEN=${RUNNER_TOKEN_3}
+      - RUNNER_URL=${RUNNER_URL}
