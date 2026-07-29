@@ -8,5 +8,5 @@ WORKDIR /home/runner/actions-runner
 RUN curl -o actions-runner-linux-x64-2.336.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.336.0/actions-runner-linux-x64-2.336.0.tar.gz
 RUN tar xzf ./actions-runner-linux-x64-2.336.0.tar.gz
 USER runner
-RUN ./config.sh --url https://github.com/naresh-gantala-roboshop-project/roboshop-cart --token BIFZDOK4E6NYHWHJI3SDL4DKNICN4 --unattended --replace
+RUN ./config.sh --url https://github.com/naresh-gantala-roboshop-project/roboshop-cart --token ${RUNNER_TOKEN} --unattended --replace
 CMD ["bash" "-c" "run.sh"]
