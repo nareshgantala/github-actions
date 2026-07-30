@@ -11,10 +11,10 @@ FROM redhat/ubi10
 
 RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash - && \
     dnf install -y --nodocs --setopt=install_weak_deps=False \
-        nodejs golang git mysql8.4 \
-        java-21-openjdk-devel maven \
-        python3 python3-pip \
-        libicu &&  \
+    nodejs golang git mysql8.4 \
+    java-21-openjdk-devel maven \
+    python3 python3-pip \
+    libicu &&  \
     dnf clean all && \
     rm -rf /var/cache/dnf /var/log/dnf* /var/log/hawkey* /tmp/*
 
@@ -26,4 +26,4 @@ COPY --from=builder /tmp/runner/ ./
 RUN chown -R runner:runner /home/runner/actions-runner
 
 USER runner
-CMD ["bash", "-c", "./config.sh --url https://github.com/naresh-gantala-roboshop-project/roboshop-cart --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --unattended --replace && ./run.sh"]
+CMD ["bash", "-c", "./config.sh --url ${RUNNER_URL} --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --unattended --replace && ./run.sh"]
