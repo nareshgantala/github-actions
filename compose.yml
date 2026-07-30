@@ -1,21 +1,21 @@
 services:
   runner-1:
-    build: .
+    image: github-actions-runner:latest
     environment:
       - RUNNER_NAME=runner-1
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL}
 
   runner-2:
-    build: .
+    image: github-actions-runner:latest
     environment:
       - RUNNER_NAME=runner-2
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL}
 
   runner-3:
-    build: .
+    image: github-actions-runner:latest
     environment:
       - RUNNER_NAME=runner-3
       - RUNNER_TOKEN=${RUNNER_TOKEN}
-      - RUNNER_URL=${RUNNER_URL}
+      - RUNNER_URL=${RUNNER_URL} 
