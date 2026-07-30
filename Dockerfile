@@ -13,7 +13,8 @@ RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash - && \
     dnf install -y --nodocs --setopt=install_weak_deps=False \
         nodejs golang git mysql8.4 \
         java-21-openjdk-devel maven \
-        python3 python3-pip && \
+        python3 python3-pip \
+        libicu &&  \
     dnf clean all && \
     rm -rf /var/cache/dnf /var/log/dnf* /var/log/hawkey* /tmp/*
 
