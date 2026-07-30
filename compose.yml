@@ -1,5 +1,6 @@
 services:
   runner-1:
+    build: .
     image: nareshgantala/github-actions-runner:latest
     environment:
       - RUNNER_NAME=runner-1
