@@ -1,6 +1,5 @@
 up:
 	git pull
-	sudo dnf install -y make
 	echo "install docker"
 	sudo dnf remove docker \
 					docker-client \
