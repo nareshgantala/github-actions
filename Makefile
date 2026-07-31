@@ -1,5 +1,4 @@
-up:
-	git pull
+install:
 	echo "install docker"
 	sudo dnf remove docker \
 					docker-client \
@@ -16,17 +15,15 @@ up:
 	sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
 	sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 	sudo systemctl enable --now docker
-	# Check if devops user exists before adding to group to prevent failure
-	if id "devops" &>/dev/null; then
-		sudo usermod -aG docker devops
-	fi
+up:
+	git pull
 	sudo docker compose down	
 	sudo docker compose up -d --build
 
 down:
-	docker compose down
+	sudo docker compose down
 
 logs:
-	docker compose logs -f
+	sudo docker compose logs -f
 
 	
