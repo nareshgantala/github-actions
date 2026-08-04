@@ -9,6 +9,13 @@ RUN curl -o actions-runner-linux-x64-2.336.0.tar.gz -L \
 # Stage 2: Final runtime image (clean, no build artifacts)
 FROM redhat/ubi10
 
+# Add Docker CE repo and install Docker CLI only
+RUN dnf install -y --nodocs dnf-plugins-core && \
+    dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo && \
+    dnf install -y --nodocs --setopt=install_weak_deps=False \
+    docker-ce-cli \
+    && dnf clean all
+
 RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash - && \
     dnf install -y --nodocs --setopt=install_weak_deps=False \
     nodejs golang git mysql8.4 \

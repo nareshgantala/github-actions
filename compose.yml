@@ -6,17 +6,27 @@ services:
       - RUNNER_NAME=runner-1
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL}
-
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    group_add:
+      - "${DOCKER_GID}"
   runner-2:
     image: nareshgantala/github-actions-runner:latest
     environment:
       - RUNNER_NAME=runner-2
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL}
-
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    group_add:
+      - "${DOCKER_GID}"
   runner-3:
     image: nareshgantala/github-actions-runner:latest
     environment:
       - RUNNER_NAME=runner-3
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL} 
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock      
+    group_add:
+      - "${DOCKER_GID}"
