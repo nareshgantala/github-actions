@@ -6,6 +6,10 @@ services:
       - RUNNER_NAME=runner-1
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL}
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
@@ -16,6 +20,10 @@ services:
       - RUNNER_NAME=runner-2
       - RUNNER_TOKEN=${RUNNER_TOKEN}
       - RUNNER_URL=${RUNNER_URL}
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
@@ -25,7 +33,11 @@ services:
     environment:
       - RUNNER_NAME=runner-3
       - RUNNER_TOKEN=${RUNNER_TOKEN}
-      - RUNNER_URL=${RUNNER_URL} 
+      - RUNNER_URL=${RUNNER_URL}
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock      
     group_add:

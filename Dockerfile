@@ -25,6 +25,13 @@ RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash - && \
     dnf clean all && \
     rm -rf /var/cache/dnf /var/log/dnf* /var/log/hawkey* /tmp/*
 
+# Install Azure CLI
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+    dnf install -y --nodocs https://packages.microsoft.com/config/rhel/10/packages-microsoft-prod.rpm && \
+    dnf install -y --nodocs azure-cli && \
+    dnf clean all && \
+    rm -rf /var/cache/dnf /tmp/*
+
 RUN useradd -m runner
 WORKDIR /home/runner/actions-runner
 
@@ -33,4 +40,4 @@ COPY --from=builder /tmp/runner/ ./
 RUN chown -R runner:runner /home/runner/actions-runner
 
 USER runner
-CMD ["bash", "-c", "./config.sh --url ${RUNNER_URL} --token ${RUNNER_TOKEN} --name ${RUNNER_NAME} --unattended --replace && ./run.sh"]
+CMD ["bash", "-c", "setup.sh"]
