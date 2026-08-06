@@ -40,4 +40,4 @@ COPY --from=builder /tmp/runner/ ./
 RUN chown -R runner:runner /home/runner/actions-runner
 
 USER runner
-CMD ["bash", "-c", "setup.sh"]
+CMD ["bash", "-c", "./setup.sh"]
