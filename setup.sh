@@ -20,6 +20,9 @@ else
   echo "WARNING: Azure credentials not set — skipping Azure login."
 fi
 
+
+docker login ${ACR_NAME} --username ${ACR_CLIENT_ID} --password ${ACR_CLIENT_SECRET}
+
 # ── Configure and start the GitHub Actions runner ──
 ./config.sh --url "$RUNNER_URL" --token "$RUNNER_TOKEN" --name "$RUNNER_NAME" --unattended --replace
 
