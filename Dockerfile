@@ -39,5 +39,8 @@ WORKDIR /home/runner/actions-runner
 COPY --from=builder /tmp/runner/ ./
 RUN chown -R runner:runner /home/runner/actions-runner
 
+COPY setup.sh ./setup.sh
+RUN chmod +x ./setup.sh
+
 USER runner
 CMD ["bash", "-c", "./setup.sh"]
