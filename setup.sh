@@ -21,7 +21,14 @@ else
 fi
 
 
-docker login ${ACR_NAME} --username ${ACR_CLIENT_ID} --password ${ACR_CLIENT_SECRET}
+# ── ACR Authentication ──
+if [[ -n "${ACR_NAME:-}" && -n "${ACR_CLIENT_ID:-}" && -n "${ACR_CLIENT_SECRET:-}" ]]; then
+  echo "Logging in to ACR ($ACR_NAME)..."
+  docker login "$ACR_NAME" --username "$ACR_CLIENT_ID" --password "$ACR_CLIENT_SECRET"
+  echo "ACR authentication successful."
+else
+  echo "WARNING: ACR credentials not set — skipping ACR login."
+fi
 
 # ── Configure and start the GitHub Actions runner ──
 ./config.sh --url "$RUNNER_URL" --token "$RUNNER_TOKEN" --name "$RUNNER_NAME" --unattended --replace

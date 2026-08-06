@@ -10,6 +10,9 @@ services:
       - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
       - AZURE_TENANT_ID=${AZURE_TENANT_ID}
       - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+      - ACR_NAME=${ACR_NAME}
+      - ACR_CLIENT_ID=${ACR_CLIENT_ID}
+      - ACR_CLIENT_SECRET=${ACR_CLIENT_SECRET}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
@@ -24,6 +27,9 @@ services:
       - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
       - AZURE_TENANT_ID=${AZURE_TENANT_ID}
       - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+      - ACR_NAME=${ACR_NAME}
+      - ACR_CLIENT_ID=${ACR_CLIENT_ID}
+      - ACR_CLIENT_SECRET=${ACR_CLIENT_SECRET}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
@@ -38,6 +44,9 @@ services:
       - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
       - AZURE_TENANT_ID=${AZURE_TENANT_ID}
       - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+      - ACR_NAME=${ACR_NAME}
+      - ACR_CLIENT_ID=${ACR_CLIENT_ID}
+      - ACR_CLIENT_SECRET=${ACR_CLIENT_SECRET}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock      
     group_add:
