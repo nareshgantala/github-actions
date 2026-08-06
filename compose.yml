@@ -13,6 +13,8 @@ services:
       - ACR_NAME=${ACR_NAME}
       - ACR_CLIENT_ID=${ACR_CLIENT_ID}
       - ACR_CLIENT_SECRET=${ACR_CLIENT_SECRET}
+      - AKS_RESOURCE_GROUP=${AKS_RESOURCE_GROUP}
+      - AKS_CLUSTER_NAME=${AKS_CLUSTER_NAME}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
@@ -30,6 +32,8 @@ services:
       - ACR_NAME=${ACR_NAME}
       - ACR_CLIENT_ID=${ACR_CLIENT_ID}
       - ACR_CLIENT_SECRET=${ACR_CLIENT_SECRET}
+      - AKS_RESOURCE_GROUP=${AKS_RESOURCE_GROUP}
+      - AKS_CLUSTER_NAME=${AKS_CLUSTER_NAME}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     group_add:
@@ -47,6 +51,8 @@ services:
       - ACR_NAME=${ACR_NAME}
       - ACR_CLIENT_ID=${ACR_CLIENT_ID}
       - ACR_CLIENT_SECRET=${ACR_CLIENT_SECRET}
+      - AKS_RESOURCE_GROUP=${AKS_RESOURCE_GROUP}
+      - AKS_CLUSTER_NAME=${AKS_CLUSTER_NAME}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock      
     group_add:

@@ -20,6 +20,17 @@ else
   echo "WARNING: Azure credentials not set — skipping Azure login."
 fi
 
+# ── AKS Authentication ──
+if [[ -n "${AKS_RESOURCE_GROUP:-}" && -n "${AKS_CLUSTER_NAME:-}" ]]; then
+  echo "Fetching AKS credentials..."
+  az aks get-credentials \
+    --resource-group "$AKS_RESOURCE_GROUP" \
+    --name "$AKS_CLUSTER_NAME" \
+    --overwrite-existing
+  echo "AKS credentials configured."
+else
+  echo "WARNING: AKS credentials not set — skipping AKS login."
+fi
 
 # ── ACR Authentication ──
 if [[ -n "${ACR_NAME:-}" && -n "${ACR_CLIENT_ID:-}" && -n "${ACR_CLIENT_SECRET:-}" ]]; then
