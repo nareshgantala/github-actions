@@ -25,7 +25,14 @@ RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash - && \
     dnf clean all && \
     rm -rf /var/cache/dnf /var/log/dnf* /var/log/hawkey* /tmp/*
 
-# Install Azure CLI
+    # Install Helm CLI (v3)
+RUN curl -fsSL https://get.helm.sh/helm-v3.17.0-linux-amd64.tar.gz -o /tmp/helm.tar.gz && \
+    tar -xzf /tmp/helm.tar.gz -C /tmp && \
+    mv /tmp/linux-amd64/helm /usr/local/bin/helm && \
+    chmod +x /usr/local/bin/helm && \
+    rm -rf /tmp/helm.tar.gz /tmp/linux-amd64
+
+    # Install Azure CLI
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
     dnf install -y --nodocs https://packages.microsoft.com/config/rhel/10/packages-microsoft-prod.rpm && \
     dnf install -y --nodocs azure-cli && \
