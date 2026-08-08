@@ -25,8 +25,11 @@ RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash - && \
     dnf clean all && \
     rm -rf /var/cache/dnf /var/log/dnf* /var/log/hawkey* /tmp/*
 
+    # Install global npm linting tools (e.g., ESLint or standard)
+RUN npm install -g eslint
     # Install Helm CLI (v3)
-RUN curl -fsSL https://get.helm.sh/helm-v3.17.0-linux-amd64.tar.gz -o /tmp/helm.tar.gz && \
+
+    RUN curl -fsSL https://get.helm.sh/helm-v3.17.0-linux-amd64.tar.gz -o /tmp/helm.tar.gz && \
     tar -xzf /tmp/helm.tar.gz -C /tmp && \
     mv /tmp/linux-amd64/helm /usr/local/bin/helm && \
     chmod +x /usr/local/bin/helm && \
